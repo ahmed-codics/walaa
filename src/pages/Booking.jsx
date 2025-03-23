@@ -64,27 +64,21 @@ useEffect(() => {
 // Handle booking
 const handleBooking = async (e) => {
   e.preventDefault();
-  
+
   if (!userId) return toast.error("User not authenticated!");
   if (!selectedDate || !selectedTime) return toast.error("Please select a date and time!");
 
-  const bookingData = {
-    doctorName: doctor.name,
-    userId,
-    date: selectedDate,
-    time: selectedTime,
-    consultationFee: 50,
-  };
+  const bookingData = { doctorName: doctor.name, userId, date: selectedDate, time: selectedTime, consultationFee: 50 };
 
   try {
     const response = await axios.post("https://walaaback-production-7c7e.up.railway.app/book", bookingData, { withCredentials: true });
 
     if (response.status === 201) {
-      toast.success("Booking successful!");
+      toast.success("Booking successful! 🎉", { icon: "✅" });
       setTimeout(() => navigate("/"), 2000);
     }
   } catch (error) {
-    toast.error(error.response?.data?.message || "Error booking appointment. Try again later.");
+    toast.error(error.response?.data?.message || "Error booking appointment.");
   }
 };
 
