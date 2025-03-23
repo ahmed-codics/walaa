@@ -29,45 +29,48 @@ const Booking = () => {
   }, [doctorName, navigate]);
 
   // ✅ Fetch User ID
-  useEffect(() => {
-    const fetchUserId = async () => {
-      try {
-        const { data } = await axios.get("https://walaaback-production-7c7e.up.railway.app/auth/me", { withCredentials: true });
-        setUserId(data._id);
-      } catch (error) {
-        toast.error("Please log in first!");
-        navigate("/login");
-      }
-    };
-
-    fetchUserId();
-  }, [navigate]);
-
-  // ✅ Handle Booking Submission
-  const handleBooking = async (e) => {
-    e.preventDefault();
-
-    if (!userId) return toast.error("User not authenticated!");
-    if (!selectedDate || !selectedTime) return toast.error("Please select a date and time!");
-
-    const bookingData = {
-      doctorName,
-      userId,
-      date: selectedDate,
-      time: selectedTime,
-    };
-
+// Fetch user ID
+useEffect(() => {
+  const fetchUserId = async () => {
     try {
-      const response = await axios.post("https://walaaback-production-7c7e.up.railway.app/bookings", bookingData, { withCredentials: true });
-
-      if (response.status === 201) {
-        toast.success("Booking successful!");
-        setTimeout(() => navigate("/"), 2000);
-      }
+      const { data } = await axios.get("https://walaaback-production-7c7e.up.railway.app/user", { withCredentials: true });
+      if (data && data._id) setUserId(data._id);
+      else throw new Error("Invalid response from server");
     } catch (error) {
-      toast.error(error.response?.data?.message || "Error booking appointment. Try again later.");
+      toast.error("Authentication required! Please log in.");
+      navigate("/login");
     }
   };
+
+  fetchUserId();
+}, [navigate]);
+
+// Handle booking
+const handleBooking = async (e) => {
+  e.preventDefault();
+  
+  if (!userId) return toast.error("User not authenticated!");
+  if (!selectedDate || !selectedTime) return toast.error("Please select a date and time!");
+
+  const bookingData = {
+    doctorName: doctor.name,
+    userId,
+    date: selectedDate,
+    time: selectedTime,
+    consultationFee: 50,
+  };
+
+  try {
+    const response = await axios.post("https://walaaback-production-7c7e.up.railway.app/book", bookingData, { withCredentials: true });
+
+    if (response.status === 201) {
+      toast.success("Booking successful!");
+      setTimeout(() => navigate("/"), 2000);
+    }
+  } catch (error) {
+    toast.error(error.response?.data?.message || "Error booking appointment. Try again later.");
+  }
+};
 
   if (!doctor) return <h2 className="text-center text-red-600 font-bold">Loading doctor details...</h2>;
 
