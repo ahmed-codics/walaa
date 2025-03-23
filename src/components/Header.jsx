@@ -66,13 +66,18 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Right Section - Doctor Image */}
-        <div className="lg:col-span-6 xl:col-span-5 flex justify-center lg:justify-end items-center">
+        {/* Right Section - Doctor Image and Cards */}
+        <div className="lg:col-span-6 xl:col-span-5 flex flex-col items-center lg:items-end">
           <img
             className="hidden md:block w-2/5 lg:w-1/3 xl:w-1/3 border-4 border-white rounded-full"
             src="/doc.png"
             alt="Doctor"
           />
+          {/* Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+            <Card icon="💼" title="20+ Years" text="Experience in physiotherapy" />
+            <Card icon="🏆" title="Top Rated" text="Highly rated by patients" />
+          </div>
         </div>
       </div>
     </div>
@@ -85,6 +90,16 @@ const Avatar = ({ src, alt }) => (
     src={src}
     alt={alt}
   />
+);
+
+const Card = ({ icon, title, text }) => (
+  <div className="bg-white shadow-lg rounded-xl p-4 md:p-6 flex items-center border border-gray-200">
+    <div className="text-2xl md:text-3xl mr-4">{icon}</div>
+    <div>
+      <h3 className="text-lg md:text-2xl font-semibold">{title}</h3>
+      <p className="text-xs md:text-sm text-gray-600">{text}</p>
+    </div>
+  </div>
 );
 
 export default Header;
