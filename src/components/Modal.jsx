@@ -8,7 +8,7 @@ import { Eye, EyeOff, Loader2, Lock, Mail, User, X } from "lucide-react";
 export default function Modal() {
   const { modalType, closeModal, switchModal } = useModal();
   const { signup, isSigningUp, login, isLoggingIn } = useAuthStore();
-  
+
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({ fullName: "", email: "", password: "" });
 
@@ -43,7 +43,7 @@ export default function Modal() {
       exit={{ opacity: 0 }}
     >
       <motion.div
-        className="bg-white p-6 rounded-lg shadow-lg w-96 relative"
+        className="bg-white p-6 rounded-lg shadow-lg w-[90%] sm:w-96 relative"
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.8, opacity: 0 }}
