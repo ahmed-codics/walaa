@@ -18,7 +18,7 @@ const Booking = () => {
   useEffect(() => {
     const fetchUserId = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5001/api/auth/check", { withCredentials: true });
+        const { data } = await axios.get("walaaback-production-7c7e.up.railway.app", { withCredentials: true });
         if (data && data._id) setUserId(data._id);
         else throw new Error("Invalid response from server");
       } catch (error) {
@@ -51,7 +51,7 @@ const Booking = () => {
     };
 
     try {
-      const response = await axios.post("http://localhost:5001/api/bookings/book", bookingData, { withCredentials: true });
+      const response = await axios.post("walaaback-production-7c7e.up.railway.app", bookingData, { withCredentials: true });
 
       if (response.status === 201) {
         toast.success("Booking successful!");
