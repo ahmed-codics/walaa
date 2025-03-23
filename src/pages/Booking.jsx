@@ -18,13 +18,17 @@ const Booking = () => {
 useEffect(() => {
   const fetchTimes = async () => {
     try {
-      const { data } = await axios.get("https://walaaback-production-7c7e.up.railway.app/available-times");
-      setAvailableTimes(data);
+      const { data } = await axios.get("https://walaaback-production-7c7e.up.railway.app/api/bookings/available-times");
+      if (Array.isArray(data)) {
+        setAvailableTimes(data);
+      } else {
+        throw new Error("Invalid response format");
+      }
     } catch (error) {
       console.error("Error fetching times:", error);
+      toast.error("Failed to load available times.");
     }
   };
-
   fetchTimes();
 }, []);
 
@@ -33,7 +37,7 @@ useEffect(() => {
   useEffect(() => {
     const fetchDoctor = async () => {
       try {
-        const { data } = await axios.get(`https://walaaback-production-7c7e.up.railway.app/doctors/${doctorName}`);
+        const { data } = await axios.get(`https://walaaback-production-7c7e.up.railway.app/api/bookings/doctors/${doctorName}`);
         setDoctor(data);
       } catch (error) {
         toast.error("Doctor not found!");
@@ -49,7 +53,7 @@ useEffect(() => {
 useEffect(() => {
   const fetchUserId = async () => {
     try {
-      const { data } = await axios.get("https://walaaback-production-7c7e.up.railway.app/user", { withCredentials: true });
+      const { data } = await axios.get("https://walaaback-production-7c7e.up.railway.app/api/bookings/user", { withCredentials: true });
       if (data && data._id) setUserId(data._id);
       else throw new Error("Invalid response from server");
     } catch (error) {
@@ -71,7 +75,7 @@ const handleBooking = async (e) => {
   const bookingData = { doctorName: doctor.name, userId, date: selectedDate, time: selectedTime, consultationFee: 50 };
 
   try {
-    const response = await axios.post("https://walaaback-production-7c7e.up.railway.app/book", bookingData, { withCredentials: true });
+    const response = await axios.post("https://walaaback-production-7c7e.up.railway.app/api/bookings/book", bookingData, { withCredentials: true });
 
     if (response.status === 201) {
       toast.success("Booking successful! 🎉", { icon: "✅" });
