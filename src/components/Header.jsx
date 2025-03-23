@@ -69,7 +69,7 @@ const Header = () => {
         </div>
 
         {/* Right Section - Doctor Image and Cards */}
-        <div className="lg:col-span-6 xl:col-span-5 flex flex-col items-center lg:flex-row lg:items-center gap-6 mt-6 lg:mt-0 border-2 border-white rounded-lg hover:border-black transition duration-300 ease-in-out">
+        <div className="lg:col-span-6 xl:col-span-5 flex flex-col items-center lg:flex-row lg:items-center gap-6 mt-6 lg:mt-0">
           {/* Doctor Image */}
           <img
             className="w-4/6 sm:w-3/6 md:w-2/5 lg:w-4/6"
@@ -78,6 +78,23 @@ const Header = () => {
           />
 
           {/* Horizontal Cards */}
+          <div className="flex flex-col gap-4">
+            <Card
+              icon="🏥"
+              title="Expert Care"
+              text="Personalized treatment plans tailored to your needs."
+            />
+            <Card
+              icon="💪"
+              title="Recovery Support"
+              text="Comprehensive support for a speedy recovery."
+            />
+            <Card
+              icon="📅"
+              title="Flexible Appointments"
+              text="Schedule at your convenience."
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -93,7 +110,7 @@ const Avatar = ({ src, alt }) => (
 );
 
 const Card = ({ icon, title, text }) => (
-  <div className="bg-white shadow-lg rounded-xl p-4 md:p-6 w-max  flex items-center border border-gray-200">
+  <div className="bg-white shadow-lg rounded-xl p-4 md:p-6 w-full flex items-center border border-gray-200">
     <div className="text-2xl md:text-3xl mr-4">{icon}</div>
     <div>
       <h3 className="text-lg md:text-2xl font-semibold">{title}</h3>
@@ -102,4 +119,4 @@ const Card = ({ icon, title, text }) => (
   </div>
 );
 
-export default Header; 
+export default Header;
