@@ -63,7 +63,7 @@ const Header = () => {
         {/* Right Section - Doctor Image */}
         <div className="lg:col-span-6 xl:col-span-5 flex justify-center">
           <img
-            className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg rounded-lg shadow-lg"
+            className="w-full max-w-xs sm:max-w-sm border border-2 border-white md:max-w-md lg:max-w-lg rounded-lg shadow-lg"
             src="/doc.png"
             alt="Doctor"
           />
