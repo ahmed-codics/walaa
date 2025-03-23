@@ -11,27 +11,27 @@ const Header = () => {
   }, [checkAuth]);
 
   return (
-    <div className="bg-[#d4ebff] text-black min-h-screen flex items-center px-4 md:px-12 py-8 md:py-16">
-      <div className="max-w-screen-xl mx-auto grid lg:grid-cols-12 gap-8">
+    <div className="bg-[#d4ebff] text-black min-h-screen flex items-center px-4 md:px-12 py-4 md:py-12">
+      <div className="max-w-screen-xl mx-auto grid lg:grid-cols-12 gap-6 md:gap-8">
         {/* Left Section */}
         <div className="lg:col-span-6 xl:col-span-7 flex flex-col items-start text-left">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold font-montserrat leading-tight tracking-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold font-montserrat leading-tight tracking-tight">
             Dr. Walaa Gad{" "}
-            <span className="text-lg sm:text-xl md:text-3xl lg:text-5xl font-light align-top text-gray-600">
+            <span className="text-base sm:text-lg md:text-2xl lg:text-4xl font-light align-top text-gray-600">
               Physiotherapist
             </span>
           </h1>
-          <p className="mt-2 text-sm sm:text-base md:text-lg lg:text-2xl text-gray-700">
+          <p className="mt-2 text-xs sm:text-sm md:text-base lg:text-xl text-gray-700">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nam
             iste possimus voluptatum qui? Nisi nulla, amet illo veritatis commodi
             error hic eveniet molestiae dolores alias ratione, dignissimos minus
-            dolorum..
+            dolorum.
           </p>
           {/* Buttons and Badge */}
-          <div className="mt-5 flex flex-wrap items-center gap-4">
+          <div className="mt-4 flex flex-wrap items-center gap-3">
             <a
               href="#"
-              className="px-4 py-2 text-sm md:text-lg font-semibold text-white bg-blue-600 rounded-lg hover:bg-[#d4ebff] hover:text-blue-600 border-2 border-blue-600 transition-all shadow-md"
+              className="px-3 py-2 text-xs md:text-base font-semibold text-white bg-blue-600 rounded-lg hover:bg-[#d4ebff] hover:text-blue-600 border-2 border-blue-600 transition-all shadow-md"
             >
               Health Plans
             </a>
@@ -39,7 +39,7 @@ const Header = () => {
             {authUser ? (
               <a
                 href="/appointments"
-                className="px-4 py-2 text-sm md:text-lg font-semibold text-white bg-green-600 rounded-lg hover:bg-green-700 transition-all shadow-md"
+                className="px-3 py-2 text-xs md:text-base font-semibold text-white bg-green-600 rounded-lg hover:bg-green-700 transition-all shadow-md"
               >
                 Appointments
               </a>
@@ -47,7 +47,7 @@ const Header = () => {
               <a
                 href="#"
                 onClick={() => openModal("signIn")}
-                className="px-4 py-2 text-sm md:text-lg font-semibold border-2 border-black text-black rounded-lg hover:bg-black hover:text-[#d4ebff] transition-all shadow-md"
+                className="px-3 py-2 text-xs md:text-base font-semibold border-2 border-black text-black rounded-lg hover:bg-black hover:text-[#d4ebff] transition-all shadow-md"
               >
                 Sign In
               </a>
@@ -67,9 +67,9 @@ const Header = () => {
         </div>
 
         {/* Right Section - Doctor Image */}
-        <div className="lg:col-span-6 xl:col-span-5 flex flex-col items-center lg:flex-row lg:items-center gap-6 mt-6 lg:mt-0">
+        <div className="lg:col-span-6 xl:col-span-5 flex justify-center lg:justify-end items-center">
           <img
-            className="hidden lg:block w-1/3 xl:w-2/5 border-4 border-white rounded-full"
+            className="hidden md:block w-2/5 lg:w-1/3 xl:w-1/3 border-4 border-white rounded-full"
             src="/doc.png"
             alt="Doctor"
           />
