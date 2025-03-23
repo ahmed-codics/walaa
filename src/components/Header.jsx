@@ -37,7 +37,6 @@ const Header = () => {
             </a>
 
             {authUser ? (
-              // Show "Appointments" button when logged in
               <a
                 href="/appointments"
                 className="px-4 py-2 text-sm md:text-lg font-semibold text-white bg-green-600 rounded-lg hover:bg-green-700 transition-all shadow-md"
@@ -45,7 +44,6 @@ const Header = () => {
                 Appointments
               </a>
             ) : (
-              // Show "Sign In" button when not logged in
               <a
                 href="#"
                 onClick={() => openModal("signIn")}
@@ -78,7 +76,7 @@ const Header = () => {
           />
 
           {/* Horizontal Cards */}
-          <div className="flex flex-col gap-4 w-full max-w-[50px] sm:max-w-[50px]">
+          <div className="flex flex-col gap-4 w-full max-w-[200px] sm:max-w-[250px]">
             <Card
               icon="🏥"
               title="Expert Care"
@@ -110,10 +108,10 @@ const Avatar = ({ src, alt }) => (
 );
 
 const Card = ({ icon, title, text }) => (
-  <div className="bg-white shadow-lg rounded-xl p-4 md:p-6 w-full flex items-center border border-gray-200">
-    <div className="text-2xl md:text-3xl mr-4">{icon}</div>
+  <div className="bg-white shadow-lg rounded-xl p-3 md:p-4 w-full flex items-center border border-gray-200">
+    <div className="text-xl md:text-2xl mr-3">{icon}</div>
     <div>
-      <h3 className="text-lg md:text-xl font-semibold">{title}</h3>
+      <h3 className="text-base md:text-lg font-semibold">{title}</h3>
       <p className="text-xs md:text-sm text-gray-600">{text}</p>
     </div>
   </div>
