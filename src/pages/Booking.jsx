@@ -15,20 +15,26 @@ const Booking = () => {
   const [selectedTime, setSelectedTime] = useState("");
 
   // ✅ Fetch user ID
-  useEffect(() => {
-    const fetchUserId = async () => {
-      try {
-        const { data } = await axios.get("walaaback-production-7c7e.up.railway.app/api/auth/check", { withCredentials: true });
-        if (data && data._id) setUserId(data._id);
-        else throw new Error("Invalid response from server");
-      } catch (error) {
-        toast.error("Authentication required! Please log in.");
-        navigate("/login");
+useEffect(() => {
+  const fetchUserId = async () => {
+    try {
+      const { data } = await axios.get("walaaback-production-7c7e.up.railway.app/api/auth/check", { withCredentials: true });
+      console.log("Fetched User Data:", data);
+      if (data && data._id) {
+        setUserId(data._id);
+        console.log("User ID set:", data._id);
+      } else {
+        throw new Error("Invalid response from server");
       }
-    };
+    } catch (error) {
+      console.error("Auth Error:", error);
+      toast.error("Authentication required! Please log in.");
+      navigate("/login");
+    }
+  };
 
-    fetchUserId();
-  }, [navigate]);
+  fetchUserId();
+}, [navigate]);
 
   // ✅ Redirect if doctor data is missing
   if (!doctor) {
