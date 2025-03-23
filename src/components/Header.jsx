@@ -1,83 +1,72 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useModal } from "../context/modalContext";
 import { useAuthStore } from "../store/useAuthStore";
 
 const Header = () => {
   const { openModal } = useModal();
-  const { authUser, checkAuth } = useAuthStore(); // Access authentication state
+  const { authUser, checkAuth } = useAuthStore();
 
   useEffect(() => {
-    checkAuth(); // Ensure session is checked on page load
+    checkAuth();
   }, [checkAuth]);
 
   return (
-    <div className="bg-[#d4ebff] text-black min-h-screen flex items-center px-4 md:px-12">
-      <div className="max-w-screen-xl mx-auto grid lg:grid-cols-12 gap-8 pb-16">
+    <div className="bg-[#d4ebff] text-black min-h-screen flex items-center px-6 md:px-16">
+      <div className="max-w-screen-xl mx-auto grid lg:grid-cols-12 gap-10 items-center">
         {/* Left Section */}
-        <div className="lg:col-span-6 xl:col-span-7 flex flex-col items-start text-left">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold font-montserrat leading-tight tracking-tight">
-            Dr. Walaa Gad{" "}
-            <span className="text-lg sm:text-xl md:text-3xl lg:text-5xl font-light align-top text-gray-600">
+        <div className="lg:col-span-6 xl:col-span-7 text-left">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-montserrat leading-tight">
+            Dr. Walaa Gad
+            <span className="block text-lg sm:text-xl md:text-3xl lg:text-4xl font-light text-gray-600">
               Physiotherapist
             </span>
           </h1>
-          <p className="mt-2 text-sm sm:text-base md:text-lg lg:text-2xl text-gray-700">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nam
-            iste possimus voluptatum qui? Nisi nulla, amet illo veritatis commodi
-            error hic eveniet molestiae dolores alias ratione, dignissimos minus
-            dolorum..
+          <p className="mt-4 text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed">
+            Providing top-tier physiotherapy services to help you recover and regain strength. 
+            Your health and well-being are our priority.
           </p>
           {/* Buttons and Badge */}
-          <div className="mt-5 flex flex-wrap items-center gap-4">
+          <div className="mt-6 flex flex-wrap items-center gap-4">
             <a
               href="#"
-              className="px-4 py-2 text-sm md:text-lg font-semibold text-white bg-blue-600 rounded-lg hover:bg-[#d4ebff] hover:text-blue-600 border-2 border-blue-600 transition-all shadow-md"
+              className="px-6 py-3 text-lg font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-all shadow-md"
             >
               Health Plans
             </a>
 
             {authUser ? (
-              // Show "Appointments" button when logged in
               <a
                 href="/appointments"
-                className="px-4 py-2 text-sm md:text-lg font-semibold text-white bg-green-600 rounded-lg hover:bg-green-700 transition-all shadow-md"
+                className="px-6 py-3 text-lg font-semibold text-white bg-green-600 rounded-lg hover:bg-green-700 transition-all shadow-md"
               >
                 Appointments
               </a>
             ) : (
-              // Show "Sign In" button when not logged in
-              <a
-                href="#"
+              <button
                 onClick={() => openModal("signIn")}
-                className="px-4 py-2 text-sm md:text-lg font-semibold border-2 border-black text-black rounded-lg hover:bg-black hover:text-[#d4ebff] transition-all shadow-md"
+                className="px-6 py-3 text-lg font-semibold border-2 border-black text-black rounded-lg hover:bg-black hover:text-white transition-all shadow-md"
               >
                 Sign In
-              </a>
+              </button>
             )}
-
-            {/* Patients Badge */}
-            <div className="bg-white shadow-md rounded-lg hover:border-blue-600 hover:border-5 transition ease-in-out px-3 py-2 flex items-center space-x-2 border-2 border-gray-200">
-              <div className="flex -space-x-1">
-                <Avatar src="https://randomuser.me/api/portraits/women/45.jpg" alt="Patient" />
-                <Avatar src="https://randomuser.me/api/portraits/men/46.jpg" alt="Patient" />
-              </div>
-              <p className="text-gray-700 text-xs md:text-sm font-medium">
-                150k+ Patients Recovered
-              </p>
+          </div>
+          {/* Patients Badge */}
+          <div className="mt-6 flex items-center bg-white shadow-md rounded-lg px-4 py-3 border border-gray-200">
+            <div className="flex -space-x-2">
+              <Avatar src="https://randomuser.me/api/portraits/women/45.jpg" alt="Patient" />
+              <Avatar src="https://randomuser.me/api/portraits/men/46.jpg" alt="Patient" />
             </div>
+            <p className="ml-3 text-gray-700 text-base font-medium">150k+ Patients Recovered</p>
           </div>
         </div>
 
-        {/* Right Section - Doctor Image and Cards */}
-        <div className="lg:col-span-6 xl:col-span-5 flex flex-col items-center lg:flex-row lg:items-center gap-6 mt-6 lg:mt-0 border-2 border-white rounded-lg hover:border-black transition duration-300 ease-in-out">
-          {/* Doctor Image */}
+        {/* Right Section - Doctor Image */}
+        <div className="lg:col-span-6 xl:col-span-5 flex justify-center">
           <img
-            className="w-4/6 sm:w-3/6 md:w-2/5 lg:w-4/6"
+            className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg rounded-lg shadow-lg"
             src="/doc.png"
             alt="Doctor"
           />
-
-          {/* Horizontal Cards */}
         </div>
       </div>
     </div>
@@ -86,20 +75,10 @@ const Header = () => {
 
 const Avatar = ({ src, alt }) => (
   <img
-    className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-white"
+    className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white"
     src={src}
     alt={alt}
   />
-);
-
-const Card = ({ icon, title, text }) => (
-  <div className="bg-white shadow-lg rounded-xl p-4 md:p-6 w-max  flex items-center border border-gray-200">
-    <div className="text-2xl md:text-3xl mr-4">{icon}</div>
-    <div>
-      <h3 className="text-lg md:text-2xl font-semibold">{title}</h3>
-      <p className="text-xs md:text-sm text-gray-600">{text}</p>
-    </div>
-  </div>
 );
 
 export default Header;
