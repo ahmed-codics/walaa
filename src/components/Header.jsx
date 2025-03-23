@@ -78,7 +78,6 @@ const Header = () => {
           />
 
           {/* Horizontal Cards */}
-
         </div>
       </div>
     </div>
@@ -103,4 +102,4 @@ const Card = ({ icon, title, text }) => (
   </div>
 );
 
-export default Header;
+export default Header; 
