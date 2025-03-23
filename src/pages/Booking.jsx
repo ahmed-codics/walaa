@@ -1,39 +1,47 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useLocation, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 
 const Booking = () => {
-  const { name } = useParams();
-  const location = useLocation();
+  const { doctorName } = useParams(); // ✅ Get doctor name from URL
   const navigate = useNavigate();
-  const doctor = location.state; // ✅ Extract doctor details
 
-  // ✅ State Management
+  // ✅ State for doctor details & user ID
+  const [doctor, setDoctor] = useState(null);
   const [userId, setUserId] = useState(null);
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
 
-  // ✅ Fetch user ID
+  // ✅ Fetch Doctor Details
+  useEffect(() => {
+    const fetchDoctor = async () => {
+      try {
+        const { data } = await axios.get(`https://walaaback-production-7c7e.up.railway.app/doctors/${doctorName}`);
+        setDoctor(data);
+      } catch (error) {
+        toast.error("Doctor not found!");
+        navigate("/");
+      }
+    };
+
+    fetchDoctor();
+  }, [doctorName, navigate]);
+
+  // ✅ Fetch User ID
   useEffect(() => {
     const fetchUserId = async () => {
       try {
-        const { data } = await axios.get("walaaback-production-7c7e.up.railway.app", { withCredentials: true });
-        if (data && data._id) setUserId(data._id);
-        else throw new Error("Invalid response from server");
+        const { data } = await axios.get("https://walaaback-production-7c7e.up.railway.app/auth/me", { withCredentials: true });
+        setUserId(data._id);
       } catch (error) {
-        toast.error("Authentication required! Please log in.");
+        toast.error("Please log in first!");
         navigate("/login");
       }
     };
 
     fetchUserId();
   }, [navigate]);
-
-  // ✅ Redirect if doctor data is missing
-  if (!doctor) {
-    return <h2 className="text-center text-red-600 font-bold">Doctor not found!</h2>;
-  }
 
   // ✅ Handle Booking Submission
   const handleBooking = async (e) => {
@@ -43,24 +51,25 @@ const Booking = () => {
     if (!selectedDate || !selectedTime) return toast.error("Please select a date and time!");
 
     const bookingData = {
-      doctorName: doctor.name,
+      doctorName,
       userId,
       date: selectedDate,
       time: selectedTime,
-      consultationFee: 50, // ✅ Ensure fee is included
     };
 
     try {
-      const response = await axios.post("walaaback-production-7c7e.up.railway.app", bookingData, { withCredentials: true });
+      const response = await axios.post("https://walaaback-production-7c7e.up.railway.app/bookings", bookingData, { withCredentials: true });
 
       if (response.status === 201) {
         toast.success("Booking successful!");
-        setTimeout(() => navigate("/"), 2000); // ✅ Redirect after 2 sec
+        setTimeout(() => navigate("/"), 2000);
       }
     } catch (error) {
       toast.error(error.response?.data?.message || "Error booking appointment. Try again later.");
     }
   };
+
+  if (!doctor) return <h2 className="text-center text-red-600 font-bold">Loading doctor details...</h2>;
 
   return (
     <div className="font-poppins min-h-screen bg-gray-100 py-10">
@@ -113,10 +122,6 @@ const Booking = () => {
                   <option key={time} value={time}>{time}</option>
                 ))}
               </select>
-
-              {/* Consultation Fee */}
-              <label className="block font-medium text-gray-700">Consultation Fee</label>
-              <p className="font-semibold text-lg text-gray-800">$50</p>
 
               {/* Submit Button */}
               <button
