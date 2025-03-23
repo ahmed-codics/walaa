@@ -18,11 +18,16 @@ const Booking = () => {
 useEffect(() => {
   const fetchUserId = async () => {
     try {
-      const { data } = await axios.get("walaaback-production-7c7e.up.railway.app/api/auth/check", { withCredentials: true });
-      console.log("Fetched User Data:", data);
-      if (data && data._id) {
-        setUserId(data._id);
-        console.log("User ID set:", data._id);
+      const response = await axios.get(
+        "https://walaaback-production-7c7e.up.railway.app/api/auth/check",
+        { withCredentials: true }
+      );
+
+      console.log("Full API Response:", response);
+
+      if (response.data && response.data._id) {
+        setUserId(response.data._id);
+        console.log("User ID set:", response.data._id);
       } else {
         throw new Error("Invalid response from server");
       }
