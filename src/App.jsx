@@ -29,8 +29,6 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/appointments" element={<ProtectedAppointments />} />
-          <Route path="/booking/:name" element={<Booking />} />
-
         </Routes>
         <ContactUs />
       </ModalProvider>
