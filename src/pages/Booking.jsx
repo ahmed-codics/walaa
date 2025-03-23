@@ -130,17 +130,12 @@ const handleBooking = async (e) => {
 
               {/* Time Selection */}
               <label className="block font-medium text-gray-700">Select Time</label>
-              <select
-                className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all"
-                required
-                value={selectedTime}
-                onChange={(e) => setSelectedTime(e.target.value)}
-              >
-                <option value="">Select a time</option>
-                {["10:00 AM", "1:00 PM", "3:00 PM", "6:00 PM"].map((time) => (
-                  <option key={time} value={time}>{time}</option>
-                ))}
-              </select>
+<select className="w-full p-2 border rounded-lg" required value={selectedTime} onChange={(e) => setSelectedTime(e.target.value)}>
+  <option value="">Select a time</option>
+  {availableTimes.map((time) => (
+    <option key={time} value={time}>{time}</option>
+  ))}
+</select>
 
               {/* Submit Button */}
               <button
