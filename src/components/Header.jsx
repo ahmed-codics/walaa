@@ -78,10 +78,7 @@ const Header = () => {
           />
 
           {/* Horizontal Cards */}
-          <div className="flex flex-col space-y-3">
-            <Card title="23+" text="Years experience" />
-            <Card title="18+" text="Operations done" />
-          </div>
+
         </div>
       </div>
     </div>
