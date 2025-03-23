@@ -13,6 +13,22 @@ const Booking = () => {
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
 
+  const [availableTimes, setAvailableTimes] = useState([]);
+
+useEffect(() => {
+  const fetchTimes = async () => {
+    try {
+      const { data } = await axios.get("https://walaaback-production-7c7e.up.railway.app/available-times");
+      setAvailableTimes(data);
+    } catch (error) {
+      console.error("Error fetching times:", error);
+    }
+  };
+
+  fetchTimes();
+}, []);
+
+
   // ✅ Fetch Doctor Details
   useEffect(() => {
     const fetchDoctor = async () => {
