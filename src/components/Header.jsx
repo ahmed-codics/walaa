@@ -11,13 +11,13 @@ const Header = () => {
   }, [checkAuth]);
 
   return (
-    <div className="bg-[#d4ebff] text-black min-h-screen flex items-center px-4 md:px-12">
-      <div className="max-w-screen-xl mx-auto grid lg:grid-cols-12 gap-8 pb-16">
+    <div className="bg-[#d4ebff] text-black min-h-screen flex items-center px-4 md:px-12 py-8 md:py-16">
+      <div className="max-w-screen-xl mx-auto grid lg:grid-cols-12 gap-8">
         {/* Left Section */}
         <div className="lg:col-span-6 xl:col-span-7 flex flex-col items-start text-left">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
-            Dr. Walaa Gad
-            <span className="block text-lg sm:text-xl md:text-3xl lg:text-5xl font-light text-gray-600">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold font-montserrat leading-tight tracking-tight">
+            Dr. Walaa Gad{" "}
+            <span className="text-lg sm:text-xl md:text-3xl lg:text-5xl font-light align-top text-gray-600">
               Physiotherapist
             </span>
           </h1>
@@ -25,8 +25,9 @@ const Header = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nam
             iste possimus voluptatum qui? Nisi nulla, amet illo veritatis commodi
             error hic eveniet molestiae dolores alias ratione, dignissimos minus
-            dolorum.
+            dolorum..
           </p>
+          {/* Buttons and Badge */}
           <div className="mt-5 flex flex-wrap items-center gap-4">
             <a
               href="#"
@@ -34,6 +35,7 @@ const Header = () => {
             >
               Health Plans
             </a>
+
             {authUser ? (
               <a
                 href="/appointments"
@@ -50,13 +52,24 @@ const Header = () => {
                 Sign In
               </a>
             )}
+
+            {/* Patients Badge */}
+            <div className="bg-white shadow-md rounded-lg hover:border-blue-600 hover:border-5 transition ease-in-out px-3 py-2 flex items-center space-x-2 border-2 border-gray-200">
+              <div className="flex -space-x-1">
+                <Avatar src="https://randomuser.me/api/portraits/women/45.jpg" alt="Patient" />
+                <Avatar src="https://randomuser.me/api/portraits/men/46.jpg" alt="Patient" />
+              </div>
+              <p className="text-gray-700 text-xs md:text-sm font-medium">
+                150k+ Patients Recovered
+              </p>
+            </div>
           </div>
         </div>
 
         {/* Right Section - Doctor Image */}
-        <div className="hidden lg:flex lg:col-span-6 xl:col-span-5 justify-center items-center">
+        <div className="lg:col-span-6 xl:col-span-5 flex flex-col items-center lg:flex-row lg:items-center gap-6 mt-6 lg:mt-0">
           <img
-            className="w-2/5 lg:w-3/6 xl:w-2/6 border-4 border-white rounded-full shadow-lg"
+            className="hidden lg:block w-1/3 xl:w-2/5 border-4 border-white rounded-full"
             src="/doc.png"
             alt="Doctor"
           />
@@ -65,5 +78,13 @@ const Header = () => {
     </div>
   );
 };
+
+const Avatar = ({ src, alt }) => (
+  <img
+    className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-white"
+    src={src}
+    alt={alt}
+  />
+);
 
 export default Header;
