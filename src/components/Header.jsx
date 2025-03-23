@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useModal } from "../context/modalContext";
 import { useAuthStore } from "../store/useAuthStore";
 
@@ -78,7 +78,7 @@ const Header = () => {
           />
 
           {/* Horizontal Cards */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 w-full max-w-[300px] sm:max-w-[350px]">
             <Card
               icon="🏥"
               title="Expert Care"
@@ -113,7 +113,7 @@ const Card = ({ icon, title, text }) => (
   <div className="bg-white shadow-lg rounded-xl p-4 md:p-6 w-full flex items-center border border-gray-200">
     <div className="text-2xl md:text-3xl mr-4">{icon}</div>
     <div>
-      <h3 className="text-lg md:text-2xl font-semibold">{title}</h3>
+      <h3 className="text-lg md:text-xl font-semibold">{title}</h3>
       <p className="text-xs md:text-sm text-gray-600">{text}</p>
     </div>
   </div>
