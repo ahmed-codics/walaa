@@ -37,6 +37,7 @@ const Header = () => {
             </a>
 
             {authUser ? (
+              // Show "Appointments" button when logged in
               <a
                 href="/appointments"
                 className="px-4 py-2 text-sm md:text-lg font-semibold text-white bg-green-600 rounded-lg hover:bg-green-700 transition-all shadow-md"
@@ -44,6 +45,7 @@ const Header = () => {
                 Appointments
               </a>
             ) : (
+              // Show "Sign In" button when not logged in
               <a
                 href="#"
                 onClick={() => openModal("signIn")}
@@ -66,33 +68,13 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Right Section - Doctor Image and Cards */}
-        <div className="lg:col-span-6 xl:col-span-5 flex flex-col items-center lg:flex-row lg:items-center gap-6 mt-6 lg:mt-0">
-          {/* Doctor Image */}
+        {/* Right Section - Doctor Image */}
+        <div className="lg:col-span-6 xl:col-span-5 flex items-center justify-center mt-6 lg:mt-0">
           <img
             className="w-4/6 sm:w-3/6 md:w-2/5 lg:w-4/6"
             src="/doc.png"
             alt="Doctor"
           />
-
-          {/* Horizontal Cards */}
-          <div className="flex flex-col gap-4 w-full max-w-[200px] sm:max-w-[250px]">
-            <Card
-              icon="🏥"
-              title="Expert Care"
-              text="Personalized treatment plans tailored to your needs."
-            />
-            <Card
-              icon="💪"
-              title="Recovery Support"
-              text="Comprehensive support for a speedy recovery."
-            />
-            <Card
-              icon="📅"
-              title="Flexible Appointments"
-              text="Schedule at your convenience."
-            />
-          </div>
         </div>
       </div>
     </div>
@@ -105,16 +87,6 @@ const Avatar = ({ src, alt }) => (
     src={src}
     alt={alt}
   />
-);
-
-const Card = ({ icon, title, text }) => (
-  <div className="bg-white shadow-lg rounded-xl p-3 md:p-4 w-full flex items-center border border-gray-200">
-    <div className="text-xl md:text-2xl mr-3">{icon}</div>
-    <div>
-      <h3 className="text-base md:text-lg font-semibold">{title}</h3>
-      <p className="text-xs md:text-sm text-gray-600">{text}</p>
-    </div>
-  </div>
 );
 
 export default Header;
