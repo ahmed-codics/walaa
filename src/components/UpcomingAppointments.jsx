@@ -13,7 +13,7 @@ const UpcomingAppointments = ({ userId }) => {
 
     const fetchAppointments = async () => {
       try {
-        const { data } = await axios.get(`http://localhost:5001/api/bookings/user/${userId}`, {
+        const { data } = await axios.get(`walaaback-production-7c7e.up.railway.app/api/bookings/user/${userId}`, {
           withCredentials: true,
         });
         setAppointments(data);
@@ -29,7 +29,7 @@ const UpcomingAppointments = ({ userId }) => {
   // ✅ Delete an appointment
   const deleteAppointment = async (id) => {
     try {
-      await axios.delete(`http://localhost:5001/api/bookings/${id}`, { withCredentials: true });
+      await axios.delete(`walaaback-production-7c7e.up.railway.app/api/bookings/${id}`, { withCredentials: true });
       setAppointments((prev) => prev.filter((appt) => appt._id !== id));
       toast.success("Appointment deleted!");
     } catch (error) {
@@ -57,7 +57,7 @@ const UpcomingAppointments = ({ userId }) => {
     if (!newDate || !newTime) return toast.error("Please select a valid date and time.");
 
     try {
-      await axios.put(`http://localhost:5001/api/bookings/${editingAppointment._id}`, {
+      await axios.put(`walaaback-production-7c7e.up.railway.app/api/bookings/${editingAppointment._id}`, {
         date: newDate,
         time: newTime,
       });
