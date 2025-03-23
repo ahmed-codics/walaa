@@ -4,50 +4,52 @@ import { useAuthStore } from "../store/useAuthStore";
 
 const Header = () => {
   const { openModal } = useModal();
-  const { authUser, checkAuth } = useAuthStore();
+  const { authUser, checkAuth } = useAuthStore(); // Access authentication state
 
   useEffect(() => {
-    checkAuth();
+    checkAuth(); // Ensure session is checked on page load
   }, [checkAuth]);
 
   return (
-    <div className="bg-[#d4ebff] text-black min-h-screen flex items-center px-4 md:px-12 py-4 md:py-12">
-      <div className="max-w-screen-xl mx-auto grid lg:grid-cols-12 gap-6 md:gap-8">
+    <div className="bg-[#d4ebff] text-black min-h-screen flex items-center px-4 md:px-12">
+      <div className="max-w-screen-xl mx-auto grid lg:grid-cols-12 gap-8 pb-16">
         {/* Left Section */}
         <div className="lg:col-span-6 xl:col-span-7 flex flex-col items-start text-left">
-          <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold font-montserrat leading-tight tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold font-montserrat leading-tight tracking-tight">
             Dr. Walaa Gad{" "}
-            <span className="text-base sm:text-lg md:text-2xl lg:text-4xl font-light align-top text-gray-600">
+            <span className="text-lg sm:text-xl md:text-3xl lg:text-5xl font-light align-top text-gray-600">
               Physiotherapist
             </span>
           </h1>
-          <p className="mt-2 text-xs sm:text-sm md:text-base lg:text-xl text-gray-700">
+          <p className="mt-2 text-sm sm:text-base md:text-lg lg:text-2xl text-gray-700">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nam
             iste possimus voluptatum qui? Nisi nulla, amet illo veritatis commodi
             error hic eveniet molestiae dolores alias ratione, dignissimos minus
-            dolorum.
+            dolorum..
           </p>
           {/* Buttons and Badge */}
-          <div className="mt-4 flex flex-wrap items-center gap-3">
+          <div className="mt-5 flex flex-wrap items-center gap-4">
             <a
               href="#"
-              className="px-3 py-2 text-xs md:text-base font-semibold text-white bg-blue-600 rounded-lg hover:bg-[#d4ebff] hover:text-blue-600 border-2 border-blue-600 transition-all shadow-md"
+              className="px-4 py-2 text-sm md:text-lg font-semibold text-white bg-blue-600 rounded-lg hover:bg-[#d4ebff] hover:text-blue-600 border-2 border-blue-600 transition-all shadow-md"
             >
               Health Plans
             </a>
 
             {authUser ? (
+              // Show "Appointments" button when logged in
               <a
                 href="/appointments"
-                className="px-3 py-2 text-xs md:text-base font-semibold text-white bg-green-600 rounded-lg hover:bg-green-700 transition-all shadow-md"
+                className="px-4 py-2 text-sm md:text-lg font-semibold text-white bg-green-600 rounded-lg hover:bg-green-700 transition-all shadow-md"
               >
                 Appointments
               </a>
             ) : (
+              // Show "Sign In" button when not logged in
               <a
                 href="#"
                 onClick={() => openModal("signIn")}
-                className="px-3 py-2 text-xs md:text-base font-semibold border-2 border-black text-black rounded-lg hover:bg-black hover:text-[#d4ebff] transition-all shadow-md"
+                className="px-4 py-2 text-sm md:text-lg font-semibold border-2 border-black text-black rounded-lg hover:bg-black hover:text-[#d4ebff] transition-all shadow-md"
               >
                 Sign In
               </a>
@@ -67,17 +69,16 @@ const Header = () => {
         </div>
 
         {/* Right Section - Doctor Image and Cards */}
-        <div className="lg:col-span-6 xl:col-span-5 flex flex-col items-center lg:items-end">
+        <div className="lg:col-span-6 xl:col-span-5 flex flex-col items-center lg:flex-row lg:items-center gap-6 mt-6 lg:mt-0 border-2 border-white rounded-lg hover:border-black transition duration-300 ease-in-out">
+          {/* Doctor Image */}
           <img
-            className="hidden md:block w-2/5 lg:w-1/3 xl:w-1/3 border-4 border-white rounded-full"
+            className="w-4/6 sm:w-3/6 md:w-2/5 lg:w-4/6"
             src="/doc.png"
             alt="Doctor"
           />
-          {/* Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-            <Card icon="💼" title="20+ Years" text="Experience in physiotherapy" />
-            <Card icon="🏆" title="Top Rated" text="Highly rated by patients" />
-          </div>
+
+          {/* Horizontal Cards */}
+
         </div>
       </div>
     </div>
@@ -93,7 +94,7 @@ const Avatar = ({ src, alt }) => (
 );
 
 const Card = ({ icon, title, text }) => (
-  <div className="bg-white shadow-lg rounded-xl p-4 md:p-6 flex items-center border border-gray-200">
+  <div className="bg-white shadow-lg rounded-xl p-4 md:p-6 w-max  flex items-center border border-gray-200">
     <div className="text-2xl md:text-3xl mr-4">{icon}</div>
     <div>
       <h3 className="text-lg md:text-2xl font-semibold">{title}</h3>
