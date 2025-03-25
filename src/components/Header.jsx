@@ -16,7 +16,7 @@ const Header = () => {
         {/* Left Section */}
         <div className="lg:col-span-6 xl:col-span-7 flex flex-col items-start text-left">
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold font-montserrat leading-tight tracking-tight">
-            Dr. Walaa Gad{" "}
+            منورة يا سوسو
             <span className="text-lg sm:text-xl md:text-3xl lg:text-5xl font-light align-top text-gray-600">
               Physiotherapist
             </span>
