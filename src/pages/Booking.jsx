@@ -62,7 +62,7 @@ useEffect(() => {
     };
 
     try {
-      const response = await axios.post("walaaback-production-7c7e.up.railway.app/api/bookings/book", bookingData, { withCredentials: true });
+      const response = await axios.post("https://walaaback-production-7c7e.up.railway.app/api/bookings/book", bookingData, { withCredentials: true });
 
       if (response.status === 201) {
         toast.success("Booking successful!");
