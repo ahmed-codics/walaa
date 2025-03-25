@@ -11,19 +11,20 @@ export const useAuthStore = create((set) => ({
 
     isCheckingAuth:true,
 
-    checkAuth : async() => {
-        try {
-            const res = await axiosInstace.get("/auth/check");
-
-            set({authUser: res.data})
-        } catch (error) {
-            console.log('error in checkAuth :' , error);
-            
-            set({authUser:null})
-        }  finally {
-            set({isCheckingAuth:false})
+checkAuth: async () => {
+    try {
+        const res = await axiosInstace.get("/auth/check");
+        set({ authUser: res.data });
+    } catch (error) {
+        console.log("Error in checkAuth:", error.response?.data);
+        
+        if (error.response?.status === 401) {
+            set({ authUser: null }); // Ensure user is cleared
         }
-    },
+    } finally {
+        set({ isCheckingAuth: false });
+    }
+},
 
     signup: async (data) => {
         set({ isSigningUp: true });
