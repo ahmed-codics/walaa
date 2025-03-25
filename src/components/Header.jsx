@@ -18,7 +18,7 @@ const Header = () => {
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold font-montserrat leading-tight tracking-tight">
             منورة يا سوسو
             <span className="text-lg sm:text-xl md:text-3xl lg:text-5xl font-light align-top text-gray-600">
-              Physiotherapist
+              نهارك لذيذ 
             </span>
           </h1>
           <p className="mt-2 text-sm sm:text-base md:text-lg lg:text-2xl text-gray-700">
