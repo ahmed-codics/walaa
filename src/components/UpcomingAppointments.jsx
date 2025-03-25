@@ -13,7 +13,7 @@ const UpcomingAppointments = ({ userId }) => {
 
     const fetchAppointments = async () => {
       try {
-        const { data } = await axios.get(`walaaback-production-7c7e.up.railway.app/api/bookings/user/${userId}`, {
+        const { data } = await axios.get(`https://walaaback-production-7c7e.up.railway.app/api/bookings/user/${userId}`, {
           withCredentials: true,
         });
         setAppointments(data);
