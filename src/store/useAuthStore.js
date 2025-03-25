@@ -45,16 +45,16 @@ checkAuth: async () => {
         }
     }
         ,
-    logout : async () => {
-        try {
-            await axiosInstace.post("/auth/logout");
-            set({authUser : null})
-            toast.success("Logged out successfully!")
-        } catch (error) {
-            toast.error(error.response.data.message)
-
-        }
-    }, 
+logout: async () => {
+    try {
+        await axiosInstace.post("/auth/logout");
+        set({ authUser: null });
+        await useAuthStore.getState().checkAuth(); // Force recheck
+        toast.success("Logged out successfully!");
+    } catch (error) {
+        toast.error(error.response?.data?.message || "Logout failed!");
+    }
+},
 
     login: async (data) => {
         set({isLoggingIn : true});
