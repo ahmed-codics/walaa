@@ -48,9 +48,12 @@ checkAuth: async () => {
 logout: async () => {
     try {
         await axiosInstace.post("/auth/logout");
+        
+        // ✅ Clear auth state immediately
         set({ authUser: null });
+
         toast.success("Logged out successfully!");
-        window.location.href = "/"; // Redirect to home page
+        window.location.href = "/"; // ⬅️ Redirect to ensure fresh state
     } catch (error) {
         toast.error(error.response?.data?.message || "Logout failed!");
     }
