@@ -29,7 +29,7 @@ const UpcomingAppointments = ({ userId }) => {
   // ✅ Delete an appointment
   const deleteAppointment = async (id) => {
     try {
-      await axios.delete(`walaaback-production-7c7e.up.railway.app/api/bookings/${id}`, { withCredentials: true });
+      await axios.delete(`https://walaaback-production-7c7e.up.railway.app/api/bookings/${id}`, { withCredentials: true });
       setAppointments((prev) => prev.filter((appt) => appt._id !== id));
       toast.success("Appointment deleted!");
     } catch (error) {
@@ -57,7 +57,7 @@ const UpcomingAppointments = ({ userId }) => {
     if (!newDate || !newTime) return toast.error("Please select a valid date and time.");
 
     try {
-      await axios.put(`walaaback-production-7c7e.up.railway.app/api/bookings/${editingAppointment._id}`, {
+      await axios.put(`https://walaaback-production-7c7e.up.railway.app/api/bookings/${editingAppointment._id}`, {
         date: newDate,
         time: newTime,
       });
