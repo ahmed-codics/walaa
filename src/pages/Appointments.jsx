@@ -21,7 +21,6 @@ const Appointments = () => {
           { withCredentials: true }
         );
 
-        const { data } = await axios.get("https://walaaback-production-7c7e.up.railway.app/api/auth/check", { withCredentials: true });
         if (data && data._id) setUserId(data._id);
       } catch (error) {
         toast.error("Authentication required!");
@@ -58,7 +57,10 @@ const Appointments = () => {
                 : "No Appointments Yet — Book Your First Visit Today!"}
             </h2>
 
-            <UpcomingAppointments userId={userId} onCheck={(status) => setHasAppointments(status)} />
+            <UpcomingAppointments
+              userId={userId}
+              onCheck={(status) => setHasAppointments(status)}
+            />
           </>
         )}
 
@@ -67,7 +69,8 @@ const Appointments = () => {
           Our Specialists
         </h1>
         <p className="text-center text-gray-600 max-w-2xl mx-auto mb-10">
-          Explore our dedicated team of professionals, ready to guide you on your path to better health and wellness.
+          Explore our dedicated team of professionals, ready to guide you on
+          your path to better health and wellness.
         </p>
 
         <div className="flex flex-wrap justify-center gap-8">
@@ -85,18 +88,26 @@ const Appointments = () => {
               </figure>
 
               <div className="p-6 flex flex-col flex-grow">
-                <h2 className="text-xl font-semibold text-gray-800 mb-2">{doctor.name}</h2>
+                <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                  {doctor.name}
+                </h2>
                 <p className="text-gray-600 flex-grow">{doctor.description}</p>
                 <div className="mt-4 flex justify-between gap-3">
                   <button
-                    onClick={() => navigate(`/doctor-profile/${doctor.name}`, { state: doctor })}
+                    onClick={() =>
+                      navigate(`/doctor-profile/${doctor.name}`, {
+                        state: doctor,
+                      })
+                    }
                     className="w-1/2 py-2 text-lg font-medium border-2 border-blue-600 text-blue-600 rounded-lg shadow-md hover:bg-blue-600 hover:text-white transition-all"
                   >
                     View Profile
                   </button>
                   <button
                     className="w-1/2 py-2 text-lg font-medium bg-green-600 text-white rounded-lg shadow-md hover:bg-green-700 transition-all"
-                    onClick={() => navigate(`/booking/${doctor.name}`, { state: doctor })}
+                    onClick={() =>
+                      navigate(`/booking/${doctor.name}`, { state: doctor })
+                    }
                   >
                     Book Now
                   </button>
