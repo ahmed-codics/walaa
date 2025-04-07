@@ -16,9 +16,9 @@ const Header = () => {
         {/* Left Section */}
         <div className="lg:col-span-6 xl:col-span-7 flex flex-col items-start text-left">
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold font-montserrat leading-tight tracking-tight">
-            Dr. Walaa Gad{" "}
+            Dr. Walaa Gad
             <span className="text-lg sm:text-xl md:text-3xl lg:text-5xl font-light align-top text-gray-600">
-              Physiotherapist
+              Physiotherapist 
             </span>
           </h1>
           <p className="mt-2 text-sm sm:text-base md:text-lg lg:text-2xl text-gray-700">
@@ -77,7 +77,15 @@ const Header = () => {
 
           {/* Horizontal Cards */}
           <div className="flex flex-col gap-2 w-full max-w-[180px] sm:max-w-[220px]">
+<<<<<<< HEAD
 
+=======
+            <Card
+              icon="🏥"
+              title="Expert Care"
+              text="Personalized treatment plans tailored to your needs."
+            />
+>>>>>>> c2d711e108ee0992dc36fc572d17b975f59af997
             <Card
               icon="💪"
               title="Recovery Support"

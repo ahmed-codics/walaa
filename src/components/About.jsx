@@ -27,13 +27,23 @@ const About = () => {
             merge expert knowledge with a personalized approach to empower your
             journey.
           </p>
+<<<<<<< HEAD
           <a href="/doctors" className="btn text-white bg-slate-900 rounded-full w-32 h-10 border-2 border-grey-900 hover:bg-white hover:w-34 hover:text-gray-900 hover:font-bold">
             View Doctors
           </a>
+=======
+          <button className="btn text-white bg-slate-900 rounded-full w-32 h-10 border-2 border-grey-900 hover:bg-white hover:w-34 hover:text-gray-900 hover:font-bold">
+            View Doctors
+          </button>
+>>>>>>> c2d711e108ee0992dc36fc572d17b975f59af997
         </div>
       </div>
     </div>
   );
 };
 
+<<<<<<< HEAD
 export default About;
+=======
+export default About;
+>>>>>>> c2d711e108ee0992dc36fc572d17b975f59af997

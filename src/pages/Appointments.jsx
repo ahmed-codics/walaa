@@ -16,10 +16,14 @@ const Appointments = () => {
   useEffect(() => {
     const fetchUserId = async () => {
       try {
+<<<<<<< HEAD
         const { data } = await axios.get(
           "https://walaaback-production-7c7e.up.railway.app/api/auth/check",
           { withCredentials: true }
         );
+=======
+        const { data } = await axios.get("https://walaaback-production-7c7e.up.railway.app/api/auth/check", { withCredentials: true });
+>>>>>>> c2d711e108ee0992dc36fc572d17b975f59af997
         if (data && data._id) setUserId(data._id);
       } catch (error) {
         toast.error("Authentication required!");

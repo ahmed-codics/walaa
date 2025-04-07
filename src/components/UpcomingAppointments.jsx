@@ -10,10 +10,16 @@ const UpcomingAppointments = ({ userId, onCheck }) => {
 
     const fetchAppointments = async () => {
       try {
+<<<<<<< HEAD
         const { data } = await axios.get(
           `https://walaaback-production-7c7e.up.railway.app/api/bookings/user/${userId}`,
           { withCredentials: true }
         );
+=======
+        const { data } = await axios.get(`https://walaaback-production-7c7e.up.railway.app/api/bookings/user/${userId}`, {
+          withCredentials: true,
+        });
+>>>>>>> c2d711e108ee0992dc36fc572d17b975f59af997
         setAppointments(data);
         onCheck(data); // Trigger onCheck to update hasAppointments in the parent
       } catch (error) {
@@ -28,10 +34,14 @@ const UpcomingAppointments = ({ userId, onCheck }) => {
   // ✅ Delete an appointment
   const deleteAppointment = async (id) => {
     try {
+<<<<<<< HEAD
       await axios.delete(
         `https://walaaback-production-7c7e.up.railway.app/api/bookings/${id}`,
         { withCredentials: true }
       );
+=======
+      await axios.delete(`https://walaaback-production-7c7e.up.railway.app/api/bookings/${id}`, { withCredentials: true });
+>>>>>>> c2d711e108ee0992dc36fc572d17b975f59af997
       setAppointments((prev) => prev.filter((appt) => appt._id !== id));
       toast.success("Appointment deleted!");
     } catch (error) {
@@ -60,6 +70,7 @@ const UpcomingAppointments = ({ userId, onCheck }) => {
       return toast.error("Please select a valid date and time.");
 
     try {
+<<<<<<< HEAD
       await axios.put(
         `https://walaaback-production-7c7e.up.railway.app/api/bookings/${editingAppointment._id}`,
         {
@@ -67,6 +78,12 @@ const UpcomingAppointments = ({ userId, onCheck }) => {
           time: newTime,
         }
       );
+=======
+      await axios.put(`https://walaaback-production-7c7e.up.railway.app/api/bookings/${editingAppointment._id}`, {
+        date: newDate,
+        time: newTime,
+      });
+>>>>>>> c2d711e108ee0992dc36fc572d17b975f59af997
 
       setAppointments((prev) =>
         prev.map((appt) =>
