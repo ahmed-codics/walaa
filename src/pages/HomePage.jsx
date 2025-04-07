@@ -15,7 +15,6 @@ const HomePage = () => {
       <About />
       </div>
       <HealthPlans />
-      <Booking />
       <Modal />
     </div>
   )

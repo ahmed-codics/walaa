@@ -8,6 +8,8 @@ import Appointments from "./pages/Appointments";
 import HomePage from "./pages/HomePage";
 import ContactUs from "./components/ContactUs";
 import Booking from "./pages/Booking";
+import DoctorProfile from "./pages/DoctorProfile";
+import DoctorList from "./pages/DoctorList";
 
 export default function App() {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
@@ -29,8 +31,9 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/appointments" element={<ProtectedAppointments />} />
-          <Route path="/booking/:name" element={<Booking />} />
-
+          <Route path="/booking/:doctorName" element={<Booking />} />
+          <Route path="/doctor-profile/:name" element={<DoctorProfile />}/>
+          <Route path="/doctors" element={<DoctorList />}/>
         </Routes>
         <ContactUs />
       </ModalProvider>

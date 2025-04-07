@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useModal } from "../context/modalContext";
 import { useAuthStore } from "../store/useAuthStore";
 
@@ -30,14 +30,13 @@ const Header = () => {
           {/* Buttons and Badge */}
           <div className="mt-5 flex flex-wrap items-center gap-4">
             <a
-              href="#"
+              href="/doctors"
               className="px-4 py-2 text-sm md:text-lg font-semibold text-white bg-blue-600 rounded-lg hover:bg-[#d4ebff] hover:text-blue-600 border-2 border-blue-600 transition-all shadow-md"
             >
-              Health Plans
+              Doctors
             </a>
 
             {authUser ? (
-              // Show "Appointments" button when logged in
               <a
                 href="/appointments"
                 className="px-4 py-2 text-sm md:text-lg font-semibold text-white bg-green-600 rounded-lg hover:bg-green-700 transition-all shadow-md"
@@ -45,7 +44,6 @@ const Header = () => {
                 Appointments
               </a>
             ) : (
-              // Show "Sign In" button when not logged in
               <a
                 href="#"
                 onClick={() => openModal("signIn")}
@@ -69,7 +67,7 @@ const Header = () => {
         </div>
 
         {/* Right Section - Doctor Image and Cards */}
-        <div className="lg:col-span-6 xl:col-span-5 flex flex-col items-center lg:flex-row lg:items-center gap-6 mt-6 lg:mt-0 border-2 border-white rounded-lg hover:border-black transition duration-300 ease-in-out">
+        <div className="lg:col-span-6 xl:col-span-5 flex border-2 border-white flex-col items-center lg:flex-row lg:items-center gap-6 mt-6 lg:mt-0">
           {/* Doctor Image */}
           <img
             className="w-4/6 sm:w-3/6 md:w-2/5 lg:w-4/6"
@@ -78,7 +76,19 @@ const Header = () => {
           />
 
           {/* Horizontal Cards */}
+          <div className="flex flex-col gap-2 w-full max-w-[180px] sm:max-w-[220px]">
 
+            <Card
+              icon="💪"
+              title="Recovery Support"
+              text="Comprehensive support for a speedy recovery."
+            />
+            <Card
+              icon="📅"
+              title="Flexible Appointments"
+              text="Schedule at your convenience."
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -94,10 +104,10 @@ const Avatar = ({ src, alt }) => (
 );
 
 const Card = ({ icon, title, text }) => (
-  <div className="bg-white shadow-lg rounded-xl p-4 md:p-6 w-max  flex items-center border border-gray-200">
-    <div className="text-2xl md:text-3xl mr-4">{icon}</div>
+  <div className="bg-white shadow-lg rounded-xl p-2 md:p-3 w-full flex items-center border border-gray-200">
+    <div className="text-lg md:text-xl mr-2">{icon}</div>
     <div>
-      <h3 className="text-lg md:text-2xl font-semibold">{title}</h3>
+      <h3 className="text-sm md:text-base font-semibold">{title}</h3>
       <p className="text-xs md:text-sm text-gray-600">{text}</p>
     </div>
   </div>

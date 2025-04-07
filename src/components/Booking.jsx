@@ -2,9 +2,9 @@ import { FaCalendarAlt } from "react-icons/fa";
 
 export default function Booking() {
   return (
-    <section className="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-16 items-center">
+    <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid md:grid-cols-2 gap-8 md:gap-16 items-center">
       {/* ✅ Left: Image */}
-      <div>
+      <div className="order-2 md:order-1">
         <img
           src="booking.jpg"
           alt="Appointment"
@@ -13,14 +13,14 @@ export default function Booking() {
       </div>
 
       {/* ✅ Right: Form */}
-      <div>
-        <h2 className="text-4xl font-light mb-10 w-max text-black font-montserrat">
+      <div className="order-1 md:order-2">
+        <h2 className="text-3xl sm:text-4xl font-light mb-6 text-black font-montserrat">
           Book Your Appointment
         </h2>
 
         <form className="space-y-6">
           {/* ✅ Name & Email */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block font-montserrat text-black mb-1">Name</label>
               <input
@@ -40,7 +40,7 @@ export default function Booking() {
           </div>
 
           {/* ✅ Phone & Date */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block font-montserrat text-black mb-1">Phone</label>
               <input

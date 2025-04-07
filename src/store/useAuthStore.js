@@ -11,19 +11,20 @@ export const useAuthStore = create((set) => ({
 
     isCheckingAuth:true,
 
-    checkAuth : async() => {
-        try {
-            const res = await axiosInstace.get("/auth/check");
-
-            set({authUser: res.data})
-        } catch (error) {
-            console.log('error in checkAuth :' , error);
-            
-            set({authUser:null})
-        }  finally {
-            set({isCheckingAuth:false})
+checkAuth: async () => {
+    try {
+        const res = await axiosInstace.get("/auth/check");
+        set({ authUser: res.data });
+    } catch (error) {
+        console.log("Error in checkAuth:", error.response?.data);
+        
+        if (error.response?.status === 401) {
+            set({ authUser: null }); // Ensure user is cleared
         }
-    },
+    } finally {
+        set({ isCheckingAuth: false });
+    }
+},
 
     signup: async (data) => {
         set({ isSigningUp: true });
@@ -44,16 +45,19 @@ export const useAuthStore = create((set) => ({
         }
     }
         ,
-    logout : async () => {
-        try {
-            await axiosInstace.post("/auth/logout");
-            set({authUser : null})
-            toast.success("Logged out successfully!")
-        } catch (error) {
-            toast.error(error.response.data.message)
+logout: async () => {
+    try {
+        await axiosInstace.post("/auth/logout");
+        
+        // ✅ Clear auth state immediately
+        set({ authUser: null });
 
-        }
-    }, 
+        toast.success("Logged out successfully!");
+        window.location.href = "/"; // ⬅️ Redirect to ensure fresh state
+    } catch (error) {
+        toast.error(error.response?.data?.message || "Logout failed!");
+    }
+},
 
     login: async (data) => {
         set({isLoggingIn : true});

@@ -15,20 +15,31 @@ const Booking = () => {
   const [selectedTime, setSelectedTime] = useState("");
 
   // ✅ Fetch user ID
-  useEffect(() => {
-    const fetchUserId = async () => {
-      try {
-        const { data } = await axios.get("http://localhost:5001/api/auth/check", { withCredentials: true });
-        if (data && data._id) setUserId(data._id);
-        else throw new Error("Invalid response from server");
-      } catch (error) {
-        toast.error("Authentication required! Please log in.");
-        navigate("/login");
-      }
-    };
+useEffect(() => {
+  const fetchUserId = async () => {
+    try {
+      const response = await axios.get(
+        "https://walaaback-production-7c7e.up.railway.app/api/auth/check",
+        { withCredentials: true }
+      );
 
-    fetchUserId();
-  }, [navigate]);
+      console.log("Full API Response:", response);
+
+      if (response.data && response.data._id) {
+        setUserId(response.data._id);
+        console.log("User ID set:", response.data._id);
+      } else {
+        throw new Error("Invalid response from server");
+      }
+    } catch (error) {
+      console.error("Auth Error:", error);
+      toast.error("Authentication required! Please log in.");
+      navigate("/login");
+    }
+  };
+
+  fetchUserId();
+}, [navigate]);
 
   // ✅ Redirect if doctor data is missing
   if (!doctor) {
@@ -51,7 +62,7 @@ const Booking = () => {
     };
 
     try {
-      const response = await axios.post("http://localhost:5001/api/bookings/book", bookingData, { withCredentials: true });
+      const response = await axios.post("https://walaaback-production-7c7e.up.railway.app/api/bookings/book", bookingData, { withCredentials: true });
 
       if (response.status === 201) {
         toast.success("Booking successful!");
