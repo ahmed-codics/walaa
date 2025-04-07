@@ -32,11 +32,8 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/appointments" element={<ProtectedAppointments />} />
           <Route path="/booking/:doctorName" element={<Booking />} />
-<<<<<<< HEAD
-          <Route path="/doctor-profile/:name" element={<DoctorProfile />}/>
-          <Route path="/doctors" element={<DoctorList />}/>
-=======
->>>>>>> c2d711e108ee0992dc36fc572d17b975f59af997
+<Route path="/doctor-profile/:name" element={<DoctorProfile />} />
+<Route path="/doctors" element={<DoctorList />} />
         </Routes>
         <ContactUs />
       </ModalProvider>
