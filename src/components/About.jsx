@@ -9,10 +9,12 @@ const About = () => {
           <img
             src="abtImg2.jpg"
             className="max-w-[150px] sm:max-w-[200px] md:max-w-[250px] lg:max-w-xs rounded-lg shadow-2xl"
+            alt="About Image 2"
           />
           <img
             src="abtImg1.jpg"
             className="max-w-[150px] sm:max-w-[200px] md:max-w-[250px] lg:max-w-xs rounded-lg shadow-2xl"
+            alt="About Image 1"
           />
         </div>
 
@@ -27,23 +29,16 @@ const About = () => {
             merge expert knowledge with a personalized approach to empower your
             journey.
           </p>
-<<<<<<< HEAD
-          <a href="/doctors" className="btn text-white bg-slate-900 rounded-full w-32 h-10 border-2 border-grey-900 hover:bg-white hover:w-34 hover:text-gray-900 hover:font-bold">
+          <a
+            href="/doctors"
+            className="btn text-white bg-slate-900 rounded-full w-32 h-10 border-2 border-grey-900 hover:bg-white hover:w-34 hover:text-gray-900 hover:font-bold"
+          >
             View Doctors
           </a>
-=======
-          <button className="btn text-white bg-slate-900 rounded-full w-32 h-10 border-2 border-grey-900 hover:bg-white hover:w-34 hover:text-gray-900 hover:font-bold">
-            View Doctors
-          </button>
->>>>>>> c2d711e108ee0992dc36fc572d17b975f59af997
         </div>
       </div>
     </div>
   );
 };
 
-<<<<<<< HEAD
 export default About;
-=======
-export default About;
->>>>>>> c2d711e108ee0992dc36fc572d17b975f59af997
