@@ -25,7 +25,6 @@ const Header = () => {
   Hello Habiba! Please click on the Log In button on the right corner.
   At Dr. Walaa Gad’s clinic, we are dedicated to providing exceptional physiotherapy services with a focus on personalized care, rehabilitation, and long-term wellness. Our mission is to restore mobility, reduce pain, and enhance the quality of life for every patient through evidence-based techniques and compassionate treatment. Whether you're recovering from injury or seeking preventive care, you're in expert hands.
 </p>
-          </p>
           {/* Buttons and Badge */}
           <div className="mt-5 flex flex-wrap items-center gap-4">
             <a
