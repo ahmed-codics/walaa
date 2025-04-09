@@ -11,7 +11,7 @@ const Header = () => {
   }, [checkAuth]);
 
   return (
-    <div className="bg-[#d4ebff] text-black min-h-screen flex items-center px-4 md:px-12">
+    <div className="bg-[#d4ebff] text-black min-h-screen flex items-center ">
       <div className="max-w-screen-xl mx-auto grid lg:grid-cols-12 gap-8 pb-16">
         {/* Left Section */}
         <div className="lg:col-span-6 xl:col-span-7 flex flex-col items-start text-left">
