@@ -11,8 +11,8 @@ const Header = () => {
   }, [checkAuth]);
 
   return (
-    <div className="bg-[#d4ebff] text-black min-h-screen flex items-center ">
-      <div className="max-w-screen-xl mx-auto grid lg:grid-cols-12 gap-8 ">
+    <div className="bg-[#d4ebff] text-black min-h-screen flex items-center px-4 md:px-12">
+      <div className="max-w-screen-xl mx-auto grid lg:grid-cols-12 gap-8 pb-16">
         {/* Left Section */}
         <div className="lg:col-span-6 xl:col-span-7 flex flex-col items-start text-left">
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold font-montserrat leading-tight tracking-tight">
@@ -23,8 +23,7 @@ const Header = () => {
           </h1>
 
   <p className="mt-2 text-sm sm:text-base md:text-lg lg:text-2xl font-montserrat text-blue-700">Hello Habiba! Please click on the Log In button.</p>
-<p className="hidden sm:block mt-2 text-sm sm:text-base md:text-lg lg:text-2xl font-montserrat text-gray-700">
-  At Dr. Walaa Gad’s clinic, we are dedicated to providing exceptional physiotherapy services with a focus on personalized care, rehabilitation, and long-term wellness. Our mission is to restore mobility, reduce pain, and enhance the quality of life for every patient through evidence-based techniques and compassionate treatment.
+ <p className="mt-2 text-sm sm:text-base md:text-lg lg:text-2xl font-montserrat text-gray-700"> At Dr. Walaa Gad’s clinic, we are dedicated to providing exceptional physiotherapy services with a focus on personalized care, rehabilitation, and long-term wellness. Our mission is to restore mobility, reduce pain, and enhance the quality of life for every patient through evidence-based techniques and compassionate treatment.
 </p>
           {/* Buttons and Badge */}
           <div className="mt-5 flex flex-wrap items-center gap-4">
@@ -75,7 +74,7 @@ const Header = () => {
           />
 
           {/* Horizontal Cards */}
-<div className="hidden sm:flex flex-col gap-2 w-full max-w-[180px] sm:max-w-[220px]">
+          <div className="flex flex-col gap-2 w-full max-w-[180px] sm:max-w-[220px]">
             <Card
               icon="🏥"
               title="Expert Care"
@@ -114,7 +113,4 @@ const Card = ({ icon, title, text }) => (
       <p className="text-xs md:text-sm text-gray-600">{text}</p>
     </div>
   </div>
-);
-
-export default Header;
-
+);       export default Header;
