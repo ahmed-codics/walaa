@@ -75,7 +75,7 @@ const Header = () => {
           />
 
           {/* Horizontal Cards */}
-          <div className="flex flex-col gap-2 w-full max-w-[180px] sm:max-w-[220px]">
+<div className="hidden sm:flex flex-col gap-2 w-full max-w-[180px] sm:max-w-[220px]">
             <Card
               icon="🏥"
               title="Expert Care"
