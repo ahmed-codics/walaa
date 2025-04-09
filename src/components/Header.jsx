@@ -47,7 +47,7 @@ const Header = () => {
                 onClick={() => openModal("signIn")}
                 className="px-4 py-2 text-sm md:text-lg font-semibold border-2 border-black text-black rounded-lg hover:bg-black hover:text-[#d4ebff] transition-all shadow-md"
               >
-                Sign In
+                Log In
               </a>
             )}
 
