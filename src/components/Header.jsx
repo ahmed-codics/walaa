@@ -23,7 +23,8 @@ const Header = () => {
           </h1>
 
   <p className="mt-2 text-sm sm:text-base md:text-lg lg:text-2xl font-montserrat text-blue-700">Hello Habiba! Please click on the Log In button.</p>
- <p className="mt-2 text-sm sm:text-base md:text-lg lg:text-2xl font-montserrat text-gray-700"> At Dr. Walaa Gad’s clinic, we are dedicated to providing exceptional physiotherapy services with a focus on personalized care, rehabilitation, and long-term wellness. Our mission is to restore mobility, reduce pain, and enhance the quality of life for every patient through evidence-based techniques and compassionate treatment.
+<p className="hidden sm:block mt-2 text-sm sm:text-base md:text-lg lg:text-2xl font-montserrat text-gray-700">
+  At Dr. Walaa Gad’s clinic, we are dedicated to providing exceptional physiotherapy services with a focus on personalized care, rehabilitation, and long-term wellness. Our mission is to restore mobility, reduce pain, and enhance the quality of life for every patient through evidence-based techniques and compassionate treatment.
 </p>
           {/* Buttons and Badge */}
           <div className="mt-5 flex flex-wrap items-center gap-4">
