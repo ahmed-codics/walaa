@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <div className="bg-[#d4ebff] text-black min-h-screen flex items-center ">
-      <div className="max-w-screen-xl mx-auto grid lg:grid-cols-12 gap-8 pb-16">
+      <div className="max-w-screen-xl mx-auto grid lg:grid-cols-12 gap-8 ">
         {/* Left Section */}
         <div className="lg:col-span-6 xl:col-span-7 flex flex-col items-start text-left">
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold font-montserrat leading-tight tracking-tight">
