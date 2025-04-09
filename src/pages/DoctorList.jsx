@@ -60,7 +60,7 @@ const DoctorList = () => {
 
                   {/* ✅ Buttons */}
                   <div className="mt-4 flex justify-between gap-3">
-                    <button className="w-1/2 py-2 text-lg font-medium border-2 border-blue-600 text-blue-600 rounded-lg shadow-md hover:bg-blue-600 hover:text-white transition-all">
+                    <button onClick={() => navigate(`/doctor-profile/${doctor.name}`, { state: doctor })} className="w-1/2 py-2 text-lg font-medium border-2 border-blue-600 text-blue-600 rounded-lg shadow-md hover:bg-blue-600 hover:text-white transition-all">
                       View Profile
                     </button>
                     <button
