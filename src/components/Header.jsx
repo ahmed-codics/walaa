@@ -115,3 +115,6 @@ const Card = ({ icon, title, text }) => (
     </div>
   </div>
 );
+
+export default Header;
+
