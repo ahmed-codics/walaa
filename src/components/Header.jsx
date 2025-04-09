@@ -16,16 +16,13 @@ const Header = () => {
         {/* Left Section */}
         <div className="lg:col-span-6 xl:col-span-7 flex flex-col items-start text-left">
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold font-montserrat leading-tight tracking-tight">
-            Dr. Walaa Gad
+            Dr. Walaa
             <span className="text-lg sm:text-xl md:text-3xl lg:text-5xl font-light align-top text-gray-600">
               Physiotherapist
             </span>
           </h1>
           <p className="mt-2 text-sm sm:text-base md:text-lg lg:text-2xl text-gray-700">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nam
-            iste possimus voluptatum qui? Nisi nulla, amet illo veritatis commodi
-            error hic eveniet molestiae dolores alias ratione, dignissimos minus
-            dolorum..
+            Hello Habiba! Please Click on Sign In button.
           </p>
           {/* Buttons and Badge */}
           <div className="mt-5 flex flex-wrap items-center gap-4">
