@@ -85,11 +85,7 @@ const Header = () => {
               title="Recovery Support"
               text="Comprehensive support for a speedy recovery."
             />
-            <Card
-              icon="📅"
-              title="Flexible Appointments"
-              text="Schedule at your convenience."
-            />
+
           </div>
         </div>
       </div>
