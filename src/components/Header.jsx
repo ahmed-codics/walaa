@@ -78,12 +78,12 @@ const Header = () => {
             <Card
               icon="🏥"
               title="Expert Care"
-              text="Personalized treatment plans tailored to your needs."
+              text="Personalized treatment plans."
             />
             <Card
               icon="💪"
               title="Recovery Support"
-              text="Comprehensive support for a speedy recovery."
+              text="Comprehensive support."
             />
 
           </div>
