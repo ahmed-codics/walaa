@@ -66,7 +66,7 @@ useEffect(() => {
 
       if (response.status === 201) {
         toast.success("Booking successful!");
-        setTimeout(() => navigate("/"), 2000); // ✅ Redirect after 2 sec
+        setTimeout(() => navigate("/appointments"), 1000); // ✅ Redirect after 2 sec
       }
     } catch (error) {
       toast.error(error.response?.data?.message || "Error booking appointment. Try again later.");
