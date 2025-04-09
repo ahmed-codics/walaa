@@ -79,7 +79,7 @@ export default function Modal() {
           {/* ✅ Email Input */}
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-lg text-black font-medium">Email</span>
+              <span className="label-text text-lg text-black font-medium">Email ( biba@gmail.com )</span>
             </label>
             <div className="relative">
               <Mail className="absolute left-3 top-3 size-5 text-gray-400" />
@@ -98,7 +98,7 @@ export default function Modal() {
           {/* ✅ Password Input */}
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-lg text-black font-medium">Password</span>
+              <span className="label-text text-lg text-black font-medium">Password ( bibabiba )</span>
             </label>
             <div className="relative">
               <Lock className="absolute left-3 top-3 size-5 text-gray-400" />
